@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Akinator with math knowledge</title>
+  <!-- <link rel="stylesheet" href="styles.css"> -->
+  <link rel="stylesheet" href="upload.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
+  <link rel="stylesheet" href="base.css">
+  <link rel="stylesheet" href="transitions.css">
+</head>
+<body>
+  <div class="overlay transition-overlay"></div>
+  <div class="layout">
+    <header class="header">
+      <a href="/index.html">На главную</a>
+    </header>
+    <main id="swup" class="transition-main">
+      <h1>
+        <span>Покажите ваши данные.</span>
+      </h1>
+      <p>
+        мы не храним их, только показываем вам их особенности
+      </p>
+      <div class="input_block">
+        <label>
+          <input type="file" id="uploadBox" hidden />
+          <div class="link">
+            <svg viewBox='0 0 200 200' width='200' height='200' xmlns='http://www.w3.org/2000/svg' class="link__svg" aria-labelledby="link1-title link1-desc">
+              <title id="link1-title">Загрузите сюда таблицу</title>
+              <desc id="link1-desc">A rotating link with text placed around a circle with an arrow inside</desc>
+
+              <path id="link-circle" class="link__path" d="M 20, 100 a 80,80 0 1,1 160,0 a 80,80 0 1,1 -160,0" stroke="none" fill="none" />
+
+              <path class="link__arrow" d="M 75 100 L 125 100 L 110 85 M 125 100 L 110 115"  fill="none" />
+
+              <text class="link__text">
+                <textPath href="#link-circle" stroke="none">
+                  Загрузите сюда таблицу
+                </textPath>
+              </text>
+            </svg>
+          </div>
+          </div>        
+        </label>
+      </div>
+      <div class="button-block-u">
+        <div class="button-area-1-u">
+            <a href="/graphics.html" class="button-u" cursor-class="overlay">
+                <span class="button-text">Начать анализ</span>
+            </a>
+        </div>
+    </div>
+    </main>
+  </div>
+  <script type="module" src="swup.js"></script>
+  <script src="upload.js"></script>
+</body>
+</html>

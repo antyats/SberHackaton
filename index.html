@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
+    <link rel="stylesheet" href="base.css">
+    <link rel="stylesheet" href="transitions.css">
+    <script src="https://unpkg.com/swup@4"></script>
+    <script type="module" src="swup.js"></script>
+    <script src="index.js"></script>
+    <title>Akinator with math knowledge</title>
+</head>
+<body>
+    <script type="module" src="https://unpkg.com/@splinetool/viewer@0.9.506/build/spline-viewer.js"></script>
+    <main id="swup" class="transition-main">
+        <div class="wrapper-2">
+            <div class="header-text">
+                <h1>Определите предпочтения своих клиентов при помощи нашей нейросети</h1>
+            </div>
+            <spline-viewer class="spline" loading-anim-type="spinner-small-dark" url="https://prod.spline.design/pQg26GMPCqwPoqUn/scene.splinecode"></spline-viewer>
+        </div>
+        <div class="container">
+            <div id="cursor">
+              <div class="cursor__inner"></div>
+            </div>
+                <div class="button-block">
+                    <div class="button-area-1">
+                        <a href="/upload.html" class="button" cursor-class="overlay">
+                            <span class="button-text">Попробовать</span>
+                            <span class="button-text foreground-text">Провести анализ</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+    </main>
+    <div class="overlay transition-overlay"></div>
+</body>
+</html>

@@ -1,0 +1,311 @@
+@import url('https://fonts.googleapis.com/css2?family=Unbounded&display=swap');
+
+body {
+    font-family: 'Unbounded', sans-serif;
+    font-size: 1rem;
+    background-color: #000;
+    color: #506678;
+  }
+  
+  
+.wrapper {
+    width: 100%;
+    max-width: 1500px;
+}
+  
+.canvas {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+  
+.note {
+    width: 100%;
+    float: left;
+    text-align: center;
+    padding: 15px 0;
+}
+  
+a {
+    text-decoration: none;
+    color: #506678;
+    border-bottom: 1px solid rgba(80, 102, 120, 0.25);
+    transition: all 0.35s;
+  
+&:hover {
+      color: #677f93;
+      border-bottom: 1px solid rgba(149, 76, 233, 0.5);
+}
+}
+  
+@media (min-width: 960px) {
+    body {
+      padding: 25px;
+    }
+  
+    .note {
+      padding: 25px 0;
+    }
+}
+
+h1 {
+    color: white;
+    font-size: 60px;
+}
+
+.header-text {
+    margin-top: -15rem;
+    padding: 15rem;
+    text-align: center;
+}
+
+.spline {
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin: 0;
+    z-index: -2;
+}
+
+.title {
+    font-size: 10vw;
+    line-height: 1.3;
+    text-decoration: none;
+    color: #1d213f;
+    font-weight: 400;
+    -webkit-font-smoothing: antialiased;
+    text-align: center;
+  }
+  
+  #cursor {
+    position: fixed;
+    z-index: 99;
+    left: 0;
+    top: 0;
+    pointer-events: none;
+    will-change: transform;
+  }
+  
+  .cursor__inner {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    /* border: solid 1px rgba(255, 255, 255, 0.2); */
+    transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+      opacity 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  
+  .hide .cursor__inner {
+    opacity: 0;
+    width: 2.5vw;
+    height: 2.5vw;
+  }
+  
+  #cursor.overlay {
+    z-index: 1;
+  }
+  
+  .overlay .cursor__inner {
+    width: 48px;
+    height: 48px;
+    background-color: rgba(0, 0, 0, 0.2);
+    border-color: transparent;
+  }
+  
+  .button {
+    font-size: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 500px;
+    height: 100px;
+    text-decoration: none;
+    border: solid 1px rgba(255, 255, 255, 0.2);
+    text-align: center;
+    color: #fff;
+    text-transform: uppercase;
+    font-weight: bolder;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    text-align: center;
+  }
+  .button .button-text {
+    position: absolute;
+  }
+  .button .foreground-text {
+    opacity: 0;
+    z-index: 1;
+    color: #f7f7f7;
+  }
+  .button::after {
+    content: "";
+    position: relative;
+    z-index: 0;
+    width: 0;
+    height: 0;
+    background-color: rgba(150, 167, 255, 1);
+    transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  
+  @media (hover: hover) and (pointer: fine) {
+    .button:hover {
+      border-color: transparent;
+      color: #000;
+    }
+    .button:hover::after {
+      width: 100%;
+      height: 100%;
+    }
+    .button:hover .button-text.foreground-text {
+      opacity: 1;
+    }
+  }
+
+  .button:hover {
+    animation: shake 0.55s cubic-bezier(.36,.07,.19,.97) infinite !important;
+    transform: translate3d(0, 0, 0) !important;
+    perspective: 1000px !important;
+  }
+
+@keyframes tilt-n-move-shaking {
+  0% { transform: translate(0, 0) rotate(0deg); }
+  25% { transform: translate(1px, 1px) rotate(5deg); }
+  50% { transform: translate(0, 0) rotate(0eg); }
+  75% { transform: translate(-1px, 1px) rotate(-5deg); }
+  100% { transform: translate(0, 0) rotate(0deg); }
+}
+
+@keyframes tilt-n-move-shaking-fast {
+    0% { transform: translate(0, 0) rotate(0deg); }
+    25% { transform: translate(5px, 5px) rotate(5deg); }
+    50% { transform: translate(0, 0) rotate(0eg); }
+    75% { transform: translate(-5px, 5px) rotate(-5deg); }
+    100% { transform: translate(0, 0) rotate(0deg); }
+  }
+
+.button-area-1 {
+    position: absolute;
+    margin-top: 15rem;
+}
+
+.button-area-1:hover > .button {
+    animation: shake 0.55s cubic-bezier(.36,.07,.19,.97) infinite;
+    transform: translate3d(0, 0, 0);
+    perspective: 1000px;
+}
+
+.button-block {
+    display: block;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.text_safe-data {
+  font-size: 2rem;
+}
+
+.link {
+  width: 30rem;
+  height: 30rem;
+  display: inline-block;
+  font: 300 1.23rem/1.4 'Unbounded';
+  text-transform: uppercase;
+  letter-spacing: 0.1175em;
+  word-spacing: 0.3em;
+  text-decoration: none;
+  cursor: pointer;
+  rotate: -90deg;
+  overflow: hidden;
+}
+.link__svg {
+  width: 100%;
+  height: auto;
+  transform-box: fill-box;
+  fill: #2B3338;
+  stroke: #2B3338;
+  stroke-width: 0.05em;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.link__cloud {
+  transform-origin: 50% 50%;
+  -webkit-animation: rotate normal infinite 60s linear;
+          animation: rotate normal infinite 60s linear;
+  fill: rgba(255, 255, 255, 0.15);
+}
+.link__face, .link__arrow {
+  transform-origin: 50% 50%;
+  transition: transform 0.15s cubic-bezier(0.32, 0, 0.67, 0);
+}
+.link:hover .link__face, .link:hover .link__arrow {
+  transform: scale(1.1);
+  transition: transform 0.3s cubic-bezier(0.33, 1, 0.68, 1);
+}
+.link__arrow {
+  stroke-width: 0.075em;
+}
+.link__text {
+  -webkit-animation: rotateReverse normal infinite 10s linear;
+          animation: rotateReverse normal infinite 10s linear;
+  transform-origin: 50% 50%;
+}
+.link:hover .link__svg {
+  fill: #a9b2b7;
+  stroke: #a9b2b7;
+  transition: 1s;
+}
+.link--alt {
+  font-size: 1.15rem;
+  letter-spacing: 0;
+  word-spacing: 0;
+}
+
+@-webkit-keyframes rotate {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes rotate {
+  to {
+    transform: rotate(360deg);
+  }
+}
+@-webkit-keyframes rotateReverse {
+  to {
+    transform: rotate(-360deg);
+  }
+}
+@keyframes rotateReverse {
+  to {
+    transform: rotate(-360deg);
+  }
+}
+
+.input_block {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 70vh;
+}
+
+.button-area-1-u {
+  position: absolute;
+  opacity: 0.5;
+}
+
+.button-area-1-u:hover > .button {
+  animation: shake 0.55s cubic-bezier(.36,.07,.19,.97) infinite;
+  transform: translate3d(0, 0, 0);
+  perspective: 1000px;
+}
+
+.button-block-u {
+  display: block;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+}
