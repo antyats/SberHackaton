@@ -1,3 +1,4 @@
+
 const colors = {
     pink: {
         default: "rgba(249, 118, 157, 1)",
@@ -127,8 +128,4 @@ Chart.defaults.global.defaultFontColor = colors.indigo.default;
 Chart.defaults.global.defaultFontFamily = "Andale Mono";  
 
 var myChart = new Chart(ctx, options);
-
-if(document.getElementById("uploadBox").value != "") {
-  console.log('print')
-}
 
